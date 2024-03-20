@@ -1,33 +1,20 @@
-# Inicijalne upute za izradu zadaća
-Poštovane kolegice i kolege, 
+# Sustav upravljanja gradskim prijevozom putnika 
 
-čestitamo vam jer ste uspješno kreirali **repozitorij** koji ćete koristiti za izradu vašeg projekta, tj. za pisanje vaših triju zadaća. To će uključivati izradu dokumentacije i programskog kôda.
 
-Molim vas izmijenite ovaj dokument kako biste u njemu naveli naziv i kratak opis projekta koji obrađujete u vašim zadaćama, kao i vaše osobne podatke. Za upute o sintaksi koju možete koristiti u ovom dokumentu i kod pisanja vaše projektne dokumentacije obavezno pogledajte upute o sintaksi koje su dostupne na Moodleu, a dodatno i [ovaj link](https://guides.github.com/features/mastering-markdown/).
-
-A sada, vrijeme je za prvi korak rada na vašem projektu. 🙂 Za upis/opis vašeg programskog proizvoda molimo vas koristite **predložak** koji je naveden u nastavku. Započnite tako da kliknete na *olovku* u desnom gornjem kutu ovoga dokumenta te izbrišite sve što je iznad _Naziva projekta_, kao i sve upute koje su navedene u zagradama u predlošku ispod.
-
-# Naziv projekta
-(U redak iznad navedite naziv projekta koji ste dobili za analizu!)
-
-## Podaci o studentu
-(Ispod promijenite samo drugi redak tablice!)
-
-Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime
-------------  | ------------------- | ----- | ---------------------
-Ime i prezime | mojaadresa@foi.hr | 000000000 | githubuser
+## 
+Ime i prezime    | E-mail adresa (FOI)      | JMBAG      | Github korisničko ime
+------------     | ---------------------    | ---------- | ---------------------
+Lea Maria DobriĆ | ldobric21@student.foi.hr | 0016153384 | ldobric21
 
 
 ## Opis domene
-(Vlastitim riječima opišite domenu ili problem koji pokriva projekt vaše zadaće!)
+Cilj ovog projekta je izgraditi programsko rješenje u vidu sustava upravljanja gradskim prijevozom u Varaždinu, prema zahtjevima kompanije "Gradski autobusi Varaždin". 
 
 ## Specifikacija projekta
-(Vlastitim riječima opišite zahtjeve za izradu ovog programskog proizvoda!)
-
+Sustav mora zaposlenicima omogućiti definiranje vozila u voznom parku poduzeća te definiranje autobusnih stanica na kojima ona pristaju. Također je zaposlenicima potrebno omogućiti definiraje voznih linija i voznog reda za svaku od njih. Zaposlenici bi trebali moći imati uvid u definirane vozne linije i red, kao i informaciju o lokaciji pojedinog autobusa u određenom trenutku, minimalno na razini stanice. Za potrebu sastanaka treba omogućiti i 
+ispis izvještaja s informacijama o voznom parku, stanicama, linijama te voznom redu. Kako bi se osigurala sigurnost podataka, te kako sam sustav ne bi bio ugrožen, potrebno je kreirati prijavu u sustav s imenom zaposlenika te njegovom jedinstvenom šifrom. Sustav treba biti koristan i za korisnike "Gradskih autobusa Varaždin" pa im tako treba omogućiti uvid u informacije o tome koji autobusi dolaze i u kojem trenutku te infomacije o tome kako, tj. kojom linijom i u  koje vrijeme mogu stići do željenog odredišta. Također treba omogućiti prodaju karata u digitalnom obliku, s točnim vremenom ukrcaja te nazivom linije kako bi u svakom trenutku bio poznat broj putnika u autobusu. 
 ## Zadatak
 (U root repozitorija učitajte zadatak koji ste dobili i potom ovdje stavite link na njegovo otvaranje!)
 
 ## Resursi
-(Zadaće je obvezno predati u obliku Wiki stranica na ovom repozitoriju. Slike i druge artefakte koje ćete koristiti na wiki stranicama smjestite u mapu dokumentacije u repozitoriju!)
-
-Svi resursi nalaze se u mapi _Documentation_.
+Svi resursi nalaze se u mapi _Documentation_. 
