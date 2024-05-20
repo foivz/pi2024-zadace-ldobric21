@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CityTransportLD.DB
+namespace DBLayer
 {
-   public class DB
+    public class DB
     {
         private static string _connectionString = @"Data Source=31.147.206.65; Initial Catalog=PI2324_ldobric21_DB;User=PI2324_ldobric21_User; Password=+5^.+Sm3";
         private static SqlConnection _connection;
