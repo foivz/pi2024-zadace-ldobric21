@@ -11,7 +11,7 @@ namespace CityTransportLD.Models
         public int Id { get; set; }
         public string Registration { get; set; }
         public int Capacity { get; set; }
-        public string DateOfService { get; set; }
+        public DateTime DateOfService { get; set; }
         public int IdEmployee { get; set; }
     }
 }

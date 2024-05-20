@@ -28,7 +28,7 @@ namespace CityTransportLD
 
         private void btnVehicles_Click(object sender, EventArgs e)
         {
-            FrmVehicles frmVehicles = new FrmVehicles();
+            FrmVehicles frmVehicles = new FrmVehicles(CurrentEmployee);
             frmVehicles.ShowDialog();
         }
     }
