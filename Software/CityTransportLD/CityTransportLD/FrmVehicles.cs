@@ -38,15 +38,36 @@ namespace CityTransportLD
 
         private void UpdateDataGridView()
         {
-
             dgvVehicles.DataSource = VehicleRepository.GetVehicles();
-
         }
 
         private void btnAddVehicle_Click(object sender, EventArgs e)
         {
             FrmAddVehicle frmAddVehicle = new FrmAddVehicle(CurrentEmployee);
             frmAddVehicle.ShowDialog();
+            UpdateDataGridView();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvVehicles.SelectedRows[0];
+
+            Vehicle selectedVehicle = selectedRow.DataBoundItem as Vehicle;
+
+            VehicleRepository.DeleteVehicle(selectedVehicle.Id);
+
+            UpdateDataGridView();
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvVehicles.SelectedRows[0];
+
+            Vehicle selectedVehicle = selectedRow.DataBoundItem as Vehicle;
+
+            FrmEditVehicle frmEditVehicle = new FrmEditVehicle(CurrentEmployee, selectedVehicle);
+            frmEditVehicle.ShowDialog();
+
             UpdateDataGridView();
         }
     }

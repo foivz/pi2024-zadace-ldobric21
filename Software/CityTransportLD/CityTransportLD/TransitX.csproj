@@ -52,6 +52,12 @@
     <Compile Include="FrmAddVehicle.Designer.cs">
       <DependentUpon>FrmAddVehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditVehicle.Designer.cs">
+      <DependentUpon>FrmEditVehicle.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEmployeeView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Repositories\VehicleRepository.cs" />
     <EmbeddedResource Include="FrmAddVehicle.resx">
       <DependentUpon>FrmAddVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditVehicle.resx">
+      <DependentUpon>FrmEditVehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEmployeeView.resx">
       <DependentUpon>FrmEmployeeView.cs</DependentUpon>
