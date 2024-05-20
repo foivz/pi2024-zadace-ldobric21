@@ -11,18 +11,13 @@ using System.Windows.Forms;
 
 namespace CityTransportLD
 {
-    public partial class FrmMainMenu : Form
+    public partial class FrmEmployeeView : Form
     {
-
-        public FrmMainMenu()
+        Employee CurrentEmployee;
+        public FrmEmployeeView(Employee currentEmployee)
         {
             InitializeComponent();
-        }
-
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            FrmLogin frmLogin = new FrmLogin();
-            frmLogin.ShowDialog();
+            CurrentEmployee = currentEmployee;
         }
     }
 }

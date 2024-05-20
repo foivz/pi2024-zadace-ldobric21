@@ -27,6 +27,22 @@ namespace CityTransportLD.Repositories
             return employee;
         }
 
+        public static Employee GetEmployee(string username)
+        {
+            string sql = $"SELECT * FROM Zaposlenik WHERE Korisnicko_ime = '{username}'";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            Employee employee = null;
+            if (reader.HasRows)
+            {
+                reader.Read();
+                employee = CreateObject(reader);
+                reader.Close();
+            }
+            DB.CloseConnection();
+            return employee;
+        }
+
         public static List<Employee> GetEmployees()
         {
             List<Employee> employees = new List<Employee>();
