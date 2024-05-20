@@ -81,9 +81,9 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(177, 122);
+            this.btnLogin.Location = new System.Drawing.Point(157, 122);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(118, 35);
+            this.btnLogin.Size = new System.Drawing.Size(138, 35);
             this.btnLogin.TabIndex = 10;
             this.btnLogin.Text = "Prijava";
             this.btnLogin.UseVisualStyleBackColor = true;

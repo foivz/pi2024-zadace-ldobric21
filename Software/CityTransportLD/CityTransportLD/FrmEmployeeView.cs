@@ -18,6 +18,18 @@ namespace CityTransportLD
         {
             InitializeComponent();
             CurrentEmployee = currentEmployee;
+            
+        }
+
+        private void FrmEmployeeView_Load(object sender, EventArgs e)
+        {
+            lblEmployee.Text = CurrentEmployee.ToString();
+        }
+
+        private void btnVehicles_Click(object sender, EventArgs e)
+        {
+            FrmVehicles frmVehicles = new FrmVehicles();
+            frmVehicles.ShowDialog();
         }
     }
 }

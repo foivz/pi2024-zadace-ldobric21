@@ -1,5 +1,4 @@
-﻿using CityTransportLD.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,19 +10,17 @@ using System.Windows.Forms;
 
 namespace CityTransportLD
 {
-    public partial class FrmMainMenu : Form
+    public partial class FrmVehicles : Form
     {
-
-        public FrmMainMenu()
+        public FrmVehicles()
         {
             InitializeComponent();
+            dgvVehicles.DataSource = ""
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void FrmVehicles_Load(object sender, EventArgs e)
         {
-            FrmLogin frmLogin = new FrmLogin();
-            var result = frmLogin.ShowDialog();
-           
+            
         }
     }
 }
