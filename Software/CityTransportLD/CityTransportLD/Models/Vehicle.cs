@@ -13,5 +13,10 @@ namespace CityTransportLD.Models
         public int Capacity { get; set; }
         public DateTime DateOfService { get; set; }
         public int IdEmployee { get; set; }
+
+        public override string ToString()
+        {
+            return Registration;
+        }
     }
 }

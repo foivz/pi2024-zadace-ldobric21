@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvDrivingLines = new System.Windows.Forms.DataGridView();
+            this.btnAddDrivingLine = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivingLines)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,11 +45,22 @@
             this.dgvDrivingLines.Size = new System.Drawing.Size(676, 305);
             this.dgvDrivingLines.TabIndex = 0;
             // 
+            // btnAddDrivingLine
+            // 
+            this.btnAddDrivingLine.Location = new System.Drawing.Point(12, 323);
+            this.btnAddDrivingLine.Name = "btnAddDrivingLine";
+            this.btnAddDrivingLine.Size = new System.Drawing.Size(118, 41);
+            this.btnAddDrivingLine.TabIndex = 1;
+            this.btnAddDrivingLine.Text = "Dodaj novu liniju";
+            this.btnAddDrivingLine.UseVisualStyleBackColor = true;
+            this.btnAddDrivingLine.Click += new System.EventHandler(this.btnAddDrivingLine_Click);
+            // 
             // FrmDrivingLines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 396);
+            this.ClientSize = new System.Drawing.Size(700, 376);
+            this.Controls.Add(this.btnAddDrivingLine);
             this.Controls.Add(this.dgvDrivingLines);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmDrivingLines";
@@ -63,5 +75,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvDrivingLines;
+        private System.Windows.Forms.Button btnAddDrivingLine;
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CityTransportLD
 {
@@ -37,6 +38,12 @@ namespace CityTransportLD
             dgvDrivingLines.DataSource = DrivingLineRepository.GetDrivingLines();
         }
 
-        
+        private void btnAddDrivingLine_Click(object sender, EventArgs e)
+        {
+            FrmAddDrivingLine frmAddDrivingLine = new FrmAddDrivingLine();
+            frmAddDrivingLine.ShowDialog();
+            UpdateDataGridView();
+
+        }
     }
 }
