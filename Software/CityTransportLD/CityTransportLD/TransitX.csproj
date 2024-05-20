@@ -52,6 +52,12 @@
     <Compile Include="FrmAddVehicle.Designer.cs">
       <DependentUpon>FrmAddVehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDrivingLines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDrivingLines.Designer.cs">
+      <DependentUpon>FrmDrivingLines.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEditVehicle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,12 @@
     <Compile Include="FrmMainMenu.Designer.cs">
       <DependentUpon>FrmMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmStations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmStations.Designer.cs">
+      <DependentUpon>FrmStations.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVehicles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,13 +95,18 @@
       <DependentUpon>FrmVehicles.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Station.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\StationRepository.cs" />
     <Compile Include="Repositories\VehicleRepository.cs" />
     <EmbeddedResource Include="FrmAddVehicle.resx">
       <DependentUpon>FrmAddVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDrivingLines.resx">
+      <DependentUpon>FrmDrivingLines.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditVehicle.resx">
       <DependentUpon>FrmEditVehicle.cs</DependentUpon>
@@ -102,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMainMenu.resx">
       <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmStations.resx">
+      <DependentUpon>FrmStations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVehicles.resx">
       <DependentUpon>FrmVehicles.cs</DependentUpon>

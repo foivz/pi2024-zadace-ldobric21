@@ -26,8 +26,7 @@ namespace CityTransportLD
             if (CurrentEmployee != null && CurrentEmployee.Password == txtPassword.Text)
             {
                 FrmEmployeeView frmEmployeeView = new FrmEmployeeView(CurrentEmployee);
-                frmEmployeeView.Show();
-                Close();
+                frmEmployeeView.ShowDialog();
             } else
             {
                 MessageBox.Show("Netočni podaci!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);

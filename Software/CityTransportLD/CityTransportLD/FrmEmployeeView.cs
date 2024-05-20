@@ -31,5 +31,17 @@ namespace CityTransportLD
             FrmVehicles frmVehicles = new FrmVehicles(CurrentEmployee);
             frmVehicles.ShowDialog();
         }
+
+        private void txtDrivingLine_Click(object sender, EventArgs e)
+        {
+            FrmDrivingLines frmDrivingLines = new FrmDrivingLines(CurrentEmployee);
+            frmDrivingLines.ShowDialog();
+        }
+
+        private void btnStations_Click(object sender, EventArgs e)
+        {
+            FrmStations frmStations = new FrmStations(CurrentEmployee);
+            frmStations.ShowDialog();
+        }
     }
 }
