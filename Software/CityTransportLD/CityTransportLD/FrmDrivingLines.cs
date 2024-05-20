@@ -1,4 +1,5 @@
 ﻿using CityTransportLD.Models;
+using CityTransportLD.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,29 @@ namespace CityTransportLD
 {
     public partial class FrmDrivingLines : Form
     {
-        Employee CurrentEmployee;
-        public FrmDrivingLines(Employee currentEmployee)
+        public FrmDrivingLines()
         {
             InitializeComponent();
-            CurrentEmployee = currentEmployee;
         }
+
+        private void FrmDrivingLines_Load(object sender, EventArgs e)
+        {
+            UpdateDataGridView();
+            InitializeDataGridView();
+        }
+
+        private void InitializeDataGridView()
+        {
+            dgvDrivingLines.Columns[0].HeaderText = "Id";
+            dgvDrivingLines.Columns[1].HeaderText = "Id Vozila";
+            dgvDrivingLines.Columns[2].HeaderText = "Naziv";
+        }
+
+        private void UpdateDataGridView()
+        {
+            dgvDrivingLines.DataSource = DrivingLineRepository.GetDrivingLines();
+        }
+
+        
     }
 }

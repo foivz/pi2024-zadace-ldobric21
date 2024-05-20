@@ -28,21 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.dgvDrivingLines = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivingLines)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dgvDrivingLines
+            // 
+            this.dgvDrivingLines.AllowUserToAddRows = false;
+            this.dgvDrivingLines.AllowUserToDeleteRows = false;
+            this.dgvDrivingLines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDrivingLines.Location = new System.Drawing.Point(12, 12);
+            this.dgvDrivingLines.MultiSelect = false;
+            this.dgvDrivingLines.Name = "dgvDrivingLines";
+            this.dgvDrivingLines.ReadOnly = true;
+            this.dgvDrivingLines.Size = new System.Drawing.Size(676, 305);
+            this.dgvDrivingLines.TabIndex = 0;
             // 
             // FrmDrivingLines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(700, 396);
+            this.Controls.Add(this.dgvDrivingLines);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmDrivingLines";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Linije";
+            this.Load += new System.EventHandler(this.FrmDrivingLines_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivingLines)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.DataGridView dgvDrivingLines;
     }
 }

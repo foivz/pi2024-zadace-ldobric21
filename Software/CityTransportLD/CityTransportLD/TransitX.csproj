@@ -100,11 +100,13 @@
     <Compile Include="FrmVehicles.Designer.cs">
       <DependentUpon>FrmVehicles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DrivingLine.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Station.cs" />
     <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DrivingLineRepository.cs" />
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\StationRepository.cs" />
     <Compile Include="Repositories\VehicleRepository.cs" />

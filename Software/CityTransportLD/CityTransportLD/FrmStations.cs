@@ -14,11 +14,9 @@ namespace CityTransportLD
 {
     public partial class FrmStations : Form
     {
-        Employee CurrentEmployee;
-        public FrmStations(Employee currentEmployee)
+        public FrmStations()
         {
             InitializeComponent();
-            CurrentEmployee = currentEmployee;
         }
 
         private void FrmStations_Load(object sender, EventArgs e)
