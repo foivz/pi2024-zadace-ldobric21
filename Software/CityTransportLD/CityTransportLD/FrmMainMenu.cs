@@ -12,9 +12,15 @@ namespace CityTransportLD
 {
     public partial class FrmMainMenu : Form
     {
+
         public FrmMainMenu()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
