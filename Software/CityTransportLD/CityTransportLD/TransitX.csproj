@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAddStation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddStation.Designer.cs">
+      <DependentUpon>FrmAddStation.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAddVehicle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     <Compile Include="Repositories\EmployeeRepository.cs" />
     <Compile Include="Repositories\StationRepository.cs" />
     <Compile Include="Repositories\VehicleRepository.cs" />
+    <EmbeddedResource Include="FrmAddStation.resx">
+      <DependentUpon>FrmAddStation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAddVehicle.resx">
       <DependentUpon>FrmAddVehicle.cs</DependentUpon>
     </EmbeddedResource>
