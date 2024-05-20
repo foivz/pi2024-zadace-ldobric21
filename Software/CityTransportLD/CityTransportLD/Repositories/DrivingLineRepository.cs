@@ -13,7 +13,7 @@ namespace CityTransportLD.Repositories
     {
         public static DrivingLine GetDrivingLine(string id)
         {
-            string sql = $"SELECT * FROM linija WHERE Id = '{id}'";
+            string sql = $"SELECT * FROM Linija WHERE Id = '{id}'";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             DrivingLine drivingLine = null;
