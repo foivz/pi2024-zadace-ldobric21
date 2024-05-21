@@ -11,7 +11,7 @@ namespace CityTransportLD.Repositories
 {
     public class DrivingLineRepository
     {
-        public static DrivingLine GetDrivingLine(string id)
+        public static DrivingLine GetDrivingLine(int id)
         {
             string sql = $"SELECT * FROM Linija WHERE Id = '{id}'";
             DB.OpenConnection();
@@ -57,7 +57,6 @@ namespace CityTransportLD.Repositories
             int id = int.Parse(reader["Id"].ToString());
             int idVehicle = int.Parse(reader["IdVozila"].ToString());
             string name = reader["Naziv"].ToString();
-
 
             var drivingLine = new DrivingLine
             {

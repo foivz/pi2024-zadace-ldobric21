@@ -52,6 +52,12 @@
     <Compile Include="FrmAddDrivingLine.Designer.cs">
       <DependentUpon>FrmAddDrivingLine.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAddDrivingSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddDrivingSchedule.Designer.cs">
+      <DependentUpon>FrmAddDrivingSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAddStation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     </Compile>
     <Compile Include="FrmDrivingLines.Designer.cs">
       <DependentUpon>FrmDrivingLines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDrivingSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDrivingSchedule.Designer.cs">
+      <DependentUpon>FrmDrivingSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEditVehicle.cs">
       <SubType>Form</SubType>
@@ -121,6 +133,9 @@
     <EmbeddedResource Include="FrmAddDrivingLine.resx">
       <DependentUpon>FrmAddDrivingLine.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAddDrivingSchedule.resx">
+      <DependentUpon>FrmAddDrivingSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAddStation.resx">
       <DependentUpon>FrmAddStation.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDrivingLines.resx">
       <DependentUpon>FrmDrivingLines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDrivingSchedule.resx">
+      <DependentUpon>FrmDrivingSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditVehicle.resx">
       <DependentUpon>FrmEditVehicle.cs</DependentUpon>

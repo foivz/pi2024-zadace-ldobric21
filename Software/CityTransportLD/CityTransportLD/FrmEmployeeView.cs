@@ -43,5 +43,11 @@ namespace CityTransportLD
             FrmStations frmStations = new FrmStations();
             frmStations.ShowDialog();
         }
+
+        private void btnDrivingSchedule_Click(object sender, EventArgs e)
+        {
+            FrmDrivingSchedule frmDrivingSchedule = new FrmDrivingSchedule();
+            frmDrivingSchedule.Show();
+        }
     }
 }

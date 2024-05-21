@@ -12,7 +12,7 @@ namespace CityTransportLD.Repositories
 {
     public class StationRepository
     {
-        public static Station GetStation(string id)
+        public static Station GetStation(int id)
         {
             string sql = $"SELECT * FROM Stanica WHERE Id = '{id}'";
             DB.OpenConnection();

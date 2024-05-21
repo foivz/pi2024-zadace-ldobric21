@@ -44,6 +44,40 @@ namespace CityTransportLD.Repositories
 
         }
 
+        public static List<DrivingSchedule> GetDrivingSchedulesByDrivingLine(int id)
+        {
+            List<DrivingSchedule> drivingSchedules = new List<DrivingSchedule>();
+            string sql = $"SELECT * FROM VozniRed WHERE IdLinije = '{id}'";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                DrivingSchedule drivingSchedule = CreateObject(reader);
+                drivingSchedules.Add(drivingSchedule);
+            }
+            reader.Close();
+            DB.CloseConnection();
+            return drivingSchedules;
+
+        }
+
+        public static List<DrivingSchedule> GetDrivingSchedulesByDrivingLineByStation(int idDrivingLine, int idStation)
+        {
+            List<DrivingSchedule> drivingSchedules = new List<DrivingSchedule>();
+            string sql = $"SELECT * FROM VozniRed WHERE IdLinije = '{idDrivingLine}' AND IdStanice = '{idStation}'";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                DrivingSchedule drivingSchedule = CreateObject(reader);
+                drivingSchedules.Add(drivingSchedule);
+            }
+            reader.Close();
+            DB.CloseConnection();
+            return drivingSchedules;
+
+        }
+
         public static void InsertDrivingSchedule(int idDrivingLine, int idStation, float price, string timeOfDeparture)
         {
             string sql = $"INSERT INTO VozniRed (IdLinije, IdStanice, Cijena_karte, Vrijeme_polaska) VALUES ('{idDrivingLine}', '{idStation}', '{price}', '{timeOfDeparture}')";

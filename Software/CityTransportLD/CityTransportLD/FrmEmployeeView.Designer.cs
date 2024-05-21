@@ -32,6 +32,7 @@
             this.btnVehicles = new System.Windows.Forms.Button();
             this.txtDrivingLine = new System.Windows.Forms.Button();
             this.btnStations = new System.Windows.Forms.Button();
+            this.btnDrivingSchedule = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblEmployee
@@ -74,11 +75,22 @@
             this.btnStations.UseVisualStyleBackColor = true;
             this.btnStations.Click += new System.EventHandler(this.btnStations_Click);
             // 
+            // btnDrivingSchedule
+            // 
+            this.btnDrivingSchedule.Location = new System.Drawing.Point(51, 234);
+            this.btnDrivingSchedule.Name = "btnDrivingSchedule";
+            this.btnDrivingSchedule.Size = new System.Drawing.Size(279, 89);
+            this.btnDrivingSchedule.TabIndex = 4;
+            this.btnDrivingSchedule.Text = "Vozni red";
+            this.btnDrivingSchedule.UseVisualStyleBackColor = true;
+            this.btnDrivingSchedule.Click += new System.EventHandler(this.btnDrivingSchedule_Click);
+            // 
             // FrmEmployeeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 589);
+            this.ClientSize = new System.Drawing.Size(378, 465);
+            this.Controls.Add(this.btnDrivingSchedule);
             this.Controls.Add(this.btnStations);
             this.Controls.Add(this.txtDrivingLine);
             this.Controls.Add(this.btnVehicles);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.Button btnVehicles;
         private System.Windows.Forms.Button txtDrivingLine;
         private System.Windows.Forms.Button btnStations;
+        private System.Windows.Forms.Button btnDrivingSchedule;
     }
 }
