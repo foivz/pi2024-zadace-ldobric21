@@ -36,6 +36,7 @@ namespace CityTransportLD
         {
             FrmAddDrivingSchedule frmAddDrivingSchedule = new FrmAddDrivingSchedule();
             frmAddDrivingSchedule.ShowDialog();
+            InitializeDataGridView();
         }
 
         private void FillListBox()

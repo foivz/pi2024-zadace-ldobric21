@@ -27,6 +27,26 @@ namespace CityTransportLD.Repositories
             return drivingSchedule;
         }
 
+        public static int GetMaxIdTermin(int idStation, int idDrivingLine)
+        {
+            int maxIdTermin = 0;
+            string sql = $"SELECT COALESCE(MAX(IdTermina), 0) AS MaxIdTermina FROM VozniRed WHERE IdLinije = {idDrivingLine} AND IdStanice = {idStation}";
+
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+
+            if (reader.HasRows)
+            {
+                reader.Read();
+                maxIdTermin = reader.GetInt32(reader.GetOrdinal("MaxIdTermina"));
+                reader.Close();
+            }
+
+            DB.CloseConnection();
+            return maxIdTermin;
+        }
+
+
         public static List<DrivingSchedule> GetDrivingSchedules()
         {
             List<DrivingSchedule> drivingSchedules = new List<DrivingSchedule>();
@@ -78,9 +98,9 @@ namespace CityTransportLD.Repositories
 
         }
 
-        public static void InsertDrivingSchedule(int idDrivingLine, int idStation, float price, string timeOfDeparture)
+        public static void InsertDrivingSchedule(int idDrivingLine, int idStation, float price, string timeOfDeparture, int idTermin)
         {
-            string sql = $"INSERT INTO VozniRed (IdLinije, IdStanice, Cijena_karte, Vrijeme_polaska) VALUES ('{idDrivingLine}', '{idStation}', '{price}', '{timeOfDeparture}')";
+            string sql = $"INSERT INTO VozniRed (IdLinije, IdStanice, Cijena_karte, Vrijeme_polaska, IdTermina) VALUES ('{idDrivingLine}', '{idStation}', '{price}', '{timeOfDeparture}','{idTermin}')";
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
             DB.CloseConnection();

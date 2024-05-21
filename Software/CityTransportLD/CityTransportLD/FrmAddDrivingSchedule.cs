@@ -15,8 +15,10 @@ namespace CityTransportLD
 {
     public partial class FrmAddDrivingSchedule : Form
     {
-        Station SelectedStation = null;
-        DrivingLine SelectedDrivingLine = null;
+        string SelectedStation = null;
+        int SelectedStationId;
+        string SelectedDrivingLine = null;
+        int SelectedDrivingLineId;
         public FrmAddDrivingSchedule()
         {
             InitializeComponent();
@@ -42,7 +44,7 @@ namespace CityTransportLD
             lbStations.Items.Clear();
             foreach (var s in StationRepository.GetStations())
             {
-                lbStations.Items.Add(s.Adress + " " + s.Description);
+                lbStations.Items.Add(s.Id + ". " +s.Adress + " " + s.Description);
             }
         }
 
@@ -72,17 +74,19 @@ namespace CityTransportLD
 
         private void lbDrivingLines_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedDrivingLine = lbDrivingLines.SelectedItem as DrivingLine;
+            SelectedDrivingLine = lbDrivingLines.SelectedItem.ToString();
+            SelectedDrivingLineId = int.Parse(SelectedDrivingLine.Split(' ')[0]);
         }
 
         private void lbStations_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SelectedStation = lbStations.SelectedItem as Station;
+            SelectedStation = lbStations.SelectedItem.ToString();
+            SelectedStationId = int.Parse(SelectedStation.Split('.')[0]);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            lbTimeMoney.Items.Add(dtpTime.Value.ToShortTimeString() + " | " + txtMoney.Text + "€");
+            lbTimeMoney.Items.Add(dtpTime.Value.ToShortTimeString() + "|" + txtMoney.Text + "€");
         }
 
         private void btnRemoveSelected_Click(object sender, EventArgs e)
@@ -95,7 +99,25 @@ namespace CityTransportLD
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            foreach (var item in lbTimeMoney.Items)
+            {
+                int maxIdTermina;
+                string timeString = item.ToString().Split('|')[0];
+                string moneyString = item.ToString().Split('|')[1];
+                float money = float.Parse(moneyString.Substring(0, moneyString.Length - 1));
+                try
+                {
+                    maxIdTermina = DrivingScheduleRepository.GetMaxIdTermin(SelectedStationId, SelectedDrivingLineId);
+                } catch
+                {
+                    maxIdTermina = 0;
+                }
+                
+                int newIdTermina = maxIdTermina + 1;
 
+                DrivingScheduleRepository.InsertDrivingSchedule(SelectedDrivingLineId, SelectedStationId, money, timeString, newIdTermina);
+            }
+            Close();
         }
     }
 }

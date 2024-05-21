@@ -150,9 +150,9 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(729, 317);
+            this.btnSave.Location = new System.Drawing.Point(729, 313);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(98, 23);
+            this.btnSave.Size = new System.Drawing.Size(98, 33);
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Spremi";
             this.btnSave.UseVisualStyleBackColor = true;
