@@ -38,7 +38,7 @@
             // lblEmployee
             // 
             this.lblEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmployee.Location = new System.Drawing.Point(12, 9);
+            this.lblEmployee.Location = new System.Drawing.Point(12, 11);
             this.lblEmployee.Name = "lblEmployee";
             this.lblEmployee.Size = new System.Drawing.Size(354, 23);
             this.lblEmployee.TabIndex = 0;
@@ -89,7 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 465);
+            this.ClientSize = new System.Drawing.Size(378, 347);
             this.Controls.Add(this.btnDrivingSchedule);
             this.Controls.Add(this.btnStations);
             this.Controls.Add(this.txtDrivingLine);

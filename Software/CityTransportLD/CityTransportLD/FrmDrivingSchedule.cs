@@ -29,7 +29,7 @@ namespace CityTransportLD
 
         private void FrmDrivingSchedule_Load(object sender, EventArgs e)
         {
-            FillListView();
+            FillListBox();
         }
 
         private void btnAddDrivingSchedule_Click(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace CityTransportLD
             frmAddDrivingSchedule.ShowDialog();
         }
 
-        private void FillListView()
+        private void FillListBox()
         {
             lbDrivingLines.Items.Clear();
             foreach (var dl in DrivingLineRepository.GetDrivingLines())
@@ -61,10 +61,13 @@ namespace CityTransportLD
 
         private void lbDrivingLines_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string selectedDrivingLineId = lbDrivingLines.SelectedItem.ToString().Split(' ')[0];
-            SelectedDrivingLine = DrivingLineRepository.GetDrivingLine(int.Parse(selectedDrivingLineId));
-            txtVehicle.Text = VehicleRepository.GetVehicle(SelectedDrivingLine.IdVehicle).ToString();
-            InitializeDataGridView();
+            try
+            {
+                string selectedDrivingLineId = lbDrivingLines.SelectedItem.ToString().Split(' ')[0];
+                SelectedDrivingLine = DrivingLineRepository.GetDrivingLine(int.Parse(selectedDrivingLineId));
+                txtVehicle.Text = VehicleRepository.GetVehicle(SelectedDrivingLine.IdVehicle).ToString();
+                InitializeDataGridView();
+            } catch {}
         }
 
         private void InitializeDataGridView()
