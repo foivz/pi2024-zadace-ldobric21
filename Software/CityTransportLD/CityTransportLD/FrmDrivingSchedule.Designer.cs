@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddDrivingSchedule = new System.Windows.Forms.Button();
             this.lbDrivingLines = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,6 +37,7 @@
             this.dgvDrivingSchedule = new System.Windows.Forms.DataGridView();
             this.txtVehicle = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivingSchedule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,10 +80,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Roboto Condensed", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(473, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 43);
+            this.label2.Size = new System.Drawing.Size(185, 39);
             this.label2.TabIndex = 4;
             this.label2.Text = "Vozni Red";
             // 
@@ -91,20 +92,20 @@
             this.dgvDrivingSchedule.AllowUserToAddRows = false;
             this.dgvDrivingSchedule.AllowUserToDeleteRows = false;
             this.dgvDrivingSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDrivingSchedule.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDrivingSchedule.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDrivingSchedule.Location = new System.Drawing.Point(166, 59);
             this.dgvDrivingSchedule.MultiSelect = false;
             this.dgvDrivingSchedule.Name = "dgvDrivingSchedule";
             this.dgvDrivingSchedule.ReadOnly = true;
-            this.dgvDrivingSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvDrivingSchedule.Size = new System.Drawing.Size(860, 379);
+            this.dgvDrivingSchedule.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDrivingSchedule.Size = new System.Drawing.Size(860, 429);
             this.dgvDrivingSchedule.TabIndex = 5;
             // 
             // txtVehicle
@@ -124,11 +125,22 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Vozilo:";
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(12, 444);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(148, 44);
+            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Text = "Obriši označeni";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // FrmDrivingSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1038, 451);
+            this.ClientSize = new System.Drawing.Size(1038, 494);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtVehicle);
             this.Controls.Add(this.dgvDrivingSchedule);
@@ -158,5 +170,6 @@
         private System.Windows.Forms.DataGridView dgvDrivingSchedule;
         private System.Windows.Forms.TextBox txtVehicle;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

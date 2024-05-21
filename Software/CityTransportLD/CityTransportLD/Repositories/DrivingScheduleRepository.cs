@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace CityTransportLD.Repositories
 {
@@ -101,6 +102,19 @@ namespace CityTransportLD.Repositories
         public static void InsertDrivingSchedule(int idDrivingLine, int idStation, float price, string timeOfDeparture, int idTermin)
         {
             string sql = $"INSERT INTO VozniRed (IdLinije, IdStanice, Cijena_karte, Vrijeme_polaska, IdTermina) VALUES ('{idDrivingLine}', '{idStation}', '{price}', '{timeOfDeparture}','{idTermin}')";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+
+        public static void DeleteDrivingSchedule(int idDrivingLine, int idStation)
+        {
+            if (idDrivingLine == -1 || idStation == -1)
+            {
+                MessageBox.Show("Treba označiti vozni red!");
+                return;
+            }
+            string sql = $"DELETE FROM VozniRed WHERE IdLinije = {idDrivingLine} AND IdStanice = {idStation}";
             DB.OpenConnection();
             DB.ExecuteCommand(sql);
             DB.CloseConnection();

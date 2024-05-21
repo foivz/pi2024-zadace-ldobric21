@@ -24,6 +24,7 @@ namespace CityTransportLD
             if (CurrentEmployee == null)
             {
                 btnAddDrivingSchedule.Enabled = false;
+                btnDelete.Enabled = false;
             }
         }
 
@@ -145,6 +146,19 @@ namespace CityTransportLD
                 }
             } catch {}
 
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {   
+            if (dgvDrivingSchedule.SelectedRows.Count > 0) 
+            {
+                int IdStation = 0;
+                DataGridViewRow selectedRow = dgvDrivingSchedule.SelectedRows[0];
+                IdStation = int.Parse(selectedRow.Cells[0].Value.ToString());
+                DrivingScheduleRepository.DeleteDrivingSchedule(SelectedDrivingLine.Id, IdStation);
+                InitializeDataGridView();
+            }
+                
         }
     }
 }
