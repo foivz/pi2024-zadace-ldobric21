@@ -99,25 +99,45 @@ namespace CityTransportLD
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            foreach (var item in lbTimeMoney.Items)
+            try
             {
-                int maxIdTermina;
-                string timeString = item.ToString().Split('|')[0];
-                string moneyString = item.ToString().Split('|')[1];
-                float money = float.Parse(moneyString.Substring(0, moneyString.Length - 1));
-                try
+                foreach (var item in lbTimeMoney.Items)
                 {
-                    maxIdTermina = DrivingScheduleRepository.GetMaxIdTermin(SelectedStationId, SelectedDrivingLineId);
-                } catch
-                {
-                    maxIdTermina = 0;
+                    int maxIdTermina;
+                    string timeString = item.ToString().Split('|')[0];
+                    string moneyString = item.ToString().Split('|')[1];
+
+                    if (float.TryParse(moneyString.Substring(0, moneyString.Length - 1), out float money))
+                    {
+                        if (money > 0)
+                        {
+                            try
+                            {
+                                maxIdTermina = DrivingScheduleRepository.GetMaxIdTermin(SelectedStationId, SelectedDrivingLineId);
+                            } catch
+                            {
+                                maxIdTermina = 0;
+                            }
+
+                            int newIdTermina = maxIdTermina + 1;
+
+                            DrivingScheduleRepository.InsertDrivingSchedule(SelectedDrivingLineId, SelectedStationId, money, timeString, newIdTermina);
+                            Close();
+                        } else
+                        {
+                            MessageBox.Show("Unesite pozitivan broj kao cijenu.", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    } else
+                    {
+                        MessageBox.Show("Neispravan unos cijene.", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 
-                int newIdTermina = maxIdTermina + 1;
-
-                DrivingScheduleRepository.InsertDrivingSchedule(SelectedDrivingLineId, SelectedStationId, money, timeString, newIdTermina);
+            } catch
+            {
+                MessageBox.Show("Treba označiti voznu liniju i stanicu!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            Close();
         }
+
     }
 }
