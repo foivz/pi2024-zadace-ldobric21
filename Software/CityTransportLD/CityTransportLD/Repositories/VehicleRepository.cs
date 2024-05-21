@@ -13,6 +13,21 @@ namespace CityTransportLD.Repositories
 {
     public class VehicleRepository
     {
+        public static Vehicle GetVehicle(int id)
+        {
+            string sql = $"SELECT * FROM Vozilo WHERE Id = '{id}'";
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            Vehicle vehicle = null;
+            if (reader.HasRows)
+            {
+                reader.Read();
+                vehicle = CreateObject(reader);
+                reader.Close();
+            }
+            DB.CloseConnection();
+            return vehicle;
+        }
         public static Vehicle GetVehicle(string registration)
         {
             string sql = $"SELECT * FROM Vozilo WHERE Registracija = '{registration}'";

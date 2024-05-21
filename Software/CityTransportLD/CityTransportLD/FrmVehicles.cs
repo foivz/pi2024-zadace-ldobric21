@@ -50,13 +50,20 @@ namespace CityTransportLD
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = dgvVehicles.SelectedRows[0];
+            try
+            {
+                DataGridViewRow selectedRow = dgvVehicles.SelectedRows[0];
 
-            Vehicle selectedVehicle = selectedRow.DataBoundItem as Vehicle;
+                Vehicle selectedVehicle = selectedRow.DataBoundItem as Vehicle;
 
-            VehicleRepository.DeleteVehicle(selectedVehicle.Id);
+                VehicleRepository.DeleteVehicle(selectedVehicle.Id);
 
-            UpdateDataGridView();
+                UpdateDataGridView();
+            } catch
+            {
+                MessageBox.Show("Ne može se obrisati vozilo koje ima dodjeljene vozne linije!", "Problem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

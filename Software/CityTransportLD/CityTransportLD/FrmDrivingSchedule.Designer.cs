@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAddDrivingSchedule = new System.Windows.Forms.Button();
             this.lbDrivingLines = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDrivingSchedule = new System.Windows.Forms.DataGridView();
+            this.txtVehicle = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivingSchedule)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,6 +91,14 @@
             this.dgvDrivingSchedule.AllowUserToAddRows = false;
             this.dgvDrivingSchedule.AllowUserToDeleteRows = false;
             this.dgvDrivingSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDrivingSchedule.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDrivingSchedule.Location = new System.Drawing.Point(166, 59);
             this.dgvDrivingSchedule.MultiSelect = false;
             this.dgvDrivingSchedule.Name = "dgvDrivingSchedule";
@@ -96,11 +107,30 @@
             this.dgvDrivingSchedule.Size = new System.Drawing.Size(860, 379);
             this.dgvDrivingSchedule.TabIndex = 5;
             // 
+            // txtVehicle
+            // 
+            this.txtVehicle.Location = new System.Drawing.Point(166, 27);
+            this.txtVehicle.Name = "txtVehicle";
+            this.txtVehicle.ReadOnly = true;
+            this.txtVehicle.Size = new System.Drawing.Size(120, 20);
+            this.txtVehicle.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(163, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Vozilo:";
+            // 
             // FrmDrivingSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 451);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtVehicle);
             this.Controls.Add(this.dgvDrivingSchedule);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSearch);
@@ -126,5 +156,7 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvDrivingSchedule;
+        private System.Windows.Forms.TextBox txtVehicle;
+        private System.Windows.Forms.Label label3;
     }
 }

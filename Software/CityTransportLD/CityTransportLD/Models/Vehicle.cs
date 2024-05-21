@@ -16,7 +16,7 @@ namespace CityTransportLD.Models
 
         public override string ToString()
         {
-            return Registration;
+            return Id + " " + Registration;
         }
     }
 }

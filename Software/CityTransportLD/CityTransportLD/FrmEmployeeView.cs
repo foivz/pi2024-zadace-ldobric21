@@ -46,7 +46,7 @@ namespace CityTransportLD
 
         private void btnDrivingSchedule_Click(object sender, EventArgs e)
         {
-            FrmDrivingSchedule frmDrivingSchedule = new FrmDrivingSchedule();
+            FrmDrivingSchedule frmDrivingSchedule = new FrmDrivingSchedule(CurrentEmployee);
             frmDrivingSchedule.Show();
         }
     }

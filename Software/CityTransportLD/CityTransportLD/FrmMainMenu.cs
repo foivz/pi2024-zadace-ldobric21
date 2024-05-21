@@ -25,5 +25,11 @@ namespace CityTransportLD
             var result = frmLogin.ShowDialog();
            
         }
+
+        private void btnDrivingSchedule_Click(object sender, EventArgs e)
+        {
+            FrmDrivingSchedule frmDrivingSchedule = new FrmDrivingSchedule(null);
+            frmDrivingSchedule.ShowDialog();
+        }
     }
 }

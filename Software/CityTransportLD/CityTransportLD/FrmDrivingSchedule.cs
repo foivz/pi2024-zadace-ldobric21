@@ -16,9 +16,15 @@ namespace CityTransportLD
     public partial class FrmDrivingSchedule : Form
     {
         DrivingLine SelectedDrivingLine = null;
-        public FrmDrivingSchedule()
+        Employee CurrentEmployee;
+        public FrmDrivingSchedule(Employee currentEmployee)
         {
             InitializeComponent();
+            CurrentEmployee = currentEmployee;
+            if (CurrentEmployee == null)
+            {
+                btnAddDrivingSchedule.Enabled = false;
+            }
         }
 
         private void FrmDrivingSchedule_Load(object sender, EventArgs e)
@@ -57,81 +63,83 @@ namespace CityTransportLD
         {
             string selectedDrivingLineId = lbDrivingLines.SelectedItem.ToString().Split(' ')[0];
             SelectedDrivingLine = DrivingLineRepository.GetDrivingLine(int.Parse(selectedDrivingLineId));
+            txtVehicle.Text = VehicleRepository.GetVehicle(SelectedDrivingLine.IdVehicle).ToString();
             InitializeDataGridView();
         }
 
         private void InitializeDataGridView()
         {
-            dgvDrivingSchedule.Columns.Clear();
-            DataGridViewTextBoxColumn stationColumn = new DataGridViewTextBoxColumn();
-            stationColumn.HeaderText = "Stanica";
-            dgvDrivingSchedule.Columns.Add(stationColumn);
-
-            DataGridViewTextBoxColumn adressColumn = new DataGridViewTextBoxColumn();
-            adressColumn.HeaderText = "Adresa";
-            dgvDrivingSchedule.Columns.Add(adressColumn);
-
-            DataGridViewTextBoxColumn descriptionColumn = new DataGridViewTextBoxColumn();
-            descriptionColumn.HeaderText = "Dodatni opis";
-            dgvDrivingSchedule.Columns.Add(descriptionColumn);
-
-            Dictionary<int, int> countMap = new Dictionary<int, int>();
-
-            var drivingSchedulesByDrivingLine = DrivingScheduleRepository.GetDrivingSchedulesByDrivingLine(SelectedDrivingLine.Id);
-
-            List<int> allStationIds = new List<int>();
-
-            foreach (DrivingSchedule ds in drivingSchedulesByDrivingLine)
+            try
             {
-                if (countMap.ContainsKey(ds.IdStation))
+                dgvDrivingSchedule.Columns.Clear();
+                DataGridViewTextBoxColumn stationColumn = new DataGridViewTextBoxColumn();
+                stationColumn.HeaderText = "Stanica";
+                dgvDrivingSchedule.Columns.Add(stationColumn);
+
+                DataGridViewTextBoxColumn adressColumn = new DataGridViewTextBoxColumn();
+                adressColumn.HeaderText = "Adresa";
+                dgvDrivingSchedule.Columns.Add(adressColumn);
+
+                DataGridViewTextBoxColumn descriptionColumn = new DataGridViewTextBoxColumn();
+                descriptionColumn.HeaderText = "Dodatni opis";
+                dgvDrivingSchedule.Columns.Add(descriptionColumn);
+
+                Dictionary<int, int> countMap = new Dictionary<int, int>();
+
+                var drivingSchedulesByDrivingLine = DrivingScheduleRepository.GetDrivingSchedulesByDrivingLine(SelectedDrivingLine.Id);
+
+                List<int> allStationIds = new List<int>();
+
+                foreach (DrivingSchedule ds in drivingSchedulesByDrivingLine)
                 {
-                    countMap[ds.IdStation]++;
-                } else
-                {
-                    countMap[ds.IdStation] = 1;
+                    if (countMap.ContainsKey(ds.IdStation))
+                    {
+                        countMap[ds.IdStation]++;
+                    } else
+                    {
+                        countMap[ds.IdStation] = 1;
+                    }
+
+                    allStationIds.Add(ds.IdStation);
                 }
 
-                allStationIds.Add(ds.IdStation);
-            }
+                int maxTimesOfDeparture = countMap.Values.Max();
 
-            int maxTimesOfDeparture = countMap.Values.Max();
-
-            for (int i = 0; i < maxTimesOfDeparture; i++)
-            {
-
-                DataGridViewTextBoxColumn newColumn = new DataGridViewTextBoxColumn();
-                newColumn.HeaderText = $"{i + 1}.";
-                newColumn.Name = $"Column{i + 1}"; 
-
-                dgvDrivingSchedule.Columns.Add(newColumn);
-            }
-
-            IEnumerable<int> uniqueStationIds = allStationIds.Distinct();
-
-            int rowCounter = 0;
-
-            foreach (int stationId in uniqueStationIds)
-            {
-                dgvDrivingSchedule.Rows.Add();
-
-
-                dgvDrivingSchedule.Rows[rowCounter].Cells[0].Value = stationId;
-                dgvDrivingSchedule.Rows[rowCounter].Cells[1].Value = StationRepository.GetStation(stationId).Adress;
-                dgvDrivingSchedule.Rows[rowCounter].Cells[2].Value = StationRepository.GetStation(stationId).Description;
-
-                var stationLines = DrivingScheduleRepository.GetDrivingSchedulesByDrivingLineByStation(SelectedDrivingLine.Id, stationId);
-
-                int cellCounter = 3;
-                foreach (DrivingSchedule ds in stationLines) 
+                for (int i = 0; i < maxTimesOfDeparture; i++)
                 {
-                    dgvDrivingSchedule.Rows[rowCounter].Cells[cellCounter].Value = ds.TimeOfDeparture.ToString().Split(' ')[1] + " | " + ds.Price + "€";
-                    cellCounter++;
+
+                    DataGridViewTextBoxColumn newColumn = new DataGridViewTextBoxColumn();
+                    newColumn.HeaderText = $"{i + 1}.";
+                    newColumn.Name = $"Column{i + 1}";
+
+                    dgvDrivingSchedule.Columns.Add(newColumn);
                 }
 
-                rowCounter++;
-            }
+                IEnumerable<int> uniqueStationIds = allStationIds.Distinct();
+
+                int rowCounter = 0;
+
+                foreach (int stationId in uniqueStationIds)
+                {
+                    dgvDrivingSchedule.Rows.Add();
 
 
+                    dgvDrivingSchedule.Rows[rowCounter].Cells[0].Value = stationId;
+                    dgvDrivingSchedule.Rows[rowCounter].Cells[1].Value = StationRepository.GetStation(stationId).Adress;
+                    dgvDrivingSchedule.Rows[rowCounter].Cells[2].Value = StationRepository.GetStation(stationId).Description;
+
+                    var stationLines = DrivingScheduleRepository.GetDrivingSchedulesByDrivingLineByStation(SelectedDrivingLine.Id, stationId);
+
+                    int cellCounter = 3;
+                    foreach (DrivingSchedule ds in stationLines)
+                    {
+                        dgvDrivingSchedule.Rows[rowCounter].Cells[cellCounter].Value = ds.TimeOfDeparture.ToString().Split(' ')[1] + " | " + ds.Price + "€";
+                        cellCounter++;
+                    }
+
+                    rowCounter++;
+                }
+            } catch {}
 
         }
     }

@@ -31,6 +31,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnDrivingSchedule = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -63,11 +64,22 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Dobrodošli";
             // 
+            // btnDrivingSchedule
+            // 
+            this.btnDrivingSchedule.Location = new System.Drawing.Point(49, 186);
+            this.btnDrivingSchedule.Name = "btnDrivingSchedule";
+            this.btnDrivingSchedule.Size = new System.Drawing.Size(194, 112);
+            this.btnDrivingSchedule.TabIndex = 3;
+            this.btnDrivingSchedule.Text = "Vozni red";
+            this.btnDrivingSchedule.UseVisualStyleBackColor = true;
+            this.btnDrivingSchedule.Click += new System.EventHandler(this.btnDrivingSchedule_Click);
+            // 
             // FrmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 522);
+            this.ClientSize = new System.Drawing.Size(286, 316);
+            this.Controls.Add(this.btnDrivingSchedule);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLogin);
@@ -85,6 +97,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnDrivingSchedule;
     }
 }
 
